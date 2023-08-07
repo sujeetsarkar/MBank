@@ -1,0 +1,37 @@
+﻿body {
+    /*background-image: url(background.jpg);*/
+    background-size: cover;
+    background-attachment: fixed;
+    /*background-color: green;*/
+}
+
+nav > div {
+    padding: 5px;
+    background-color:#16347E;
+    border-radius: 30px;
+    font-weight:bold;
+    color:#DAD7C6;
+}
+
+div {
+    transition: transform 1s;
+}
+
+
+nav > div:hover {
+    /*background-color: blue;*/
+    /*color:white;*/
+    transform: scale(1.2);
+    z-index:3;
+    background-color: deepskyblue;
+    /*opacity: 0.1;*/
+    box-shadow: rgb(110,110,110)8px 8px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*img {
+    vertical-align: middle;
+}*/

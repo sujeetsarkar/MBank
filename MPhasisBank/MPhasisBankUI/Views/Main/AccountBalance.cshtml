@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Account Balance";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/jquery-3.3.1.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>AccountBalance</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row" style="margin-top:100px">
+            <div id="byAccountID">
+                <form method="post" name="form1">
+                    <table align="center">
+                    @if(IsPost)
+                    {
+                        if(ViewData["SavBal"]!=null)
+                        {
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:green;align-content:center;font-weight:bolder;">Account Balance<h3 style="color:blue">&#8377;@ViewData["SavBal"]</h3></td>
+                            </tr>
+                            <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                        else
+                        {
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:red;align-content:center;font-weight:bolder;">!!!Error</td>
+                            </tr>
+                            <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                    }
+                    <tr>
+                        <td><input type="text" value="@Session["id"].ToString()" name="pId" hidden /></td>
+                    </tr>
+                        <tr>
+                            <th style="font-weight:bolder;color:darkred;font-weight:bolder">AccountID::::&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                            <td align="center" colspan="2" style="color:darkblue;align-content:center;font-size:medium;font-weight:bolder;">@Session["id"].ToString()</td>
+                        </tr>
+                        <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        <tr>
+                            <td colspan="2" align="center"><input type="submit" value="Fetch"/></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "ForeClose";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+
+<html>
+<head>
+    <link href="~/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/jquery-3.3.1.min.js"></script>
+    <title>ViewBag.Title</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <form method="post">
+                <table class="tabbable" border="0" align="center" style="margin-top:50px">
+                    @if (IsPost)
+                    {
+                        if (ViewBag.res != null)
+                        {
+                            if (ViewBag.res)
+                            {
+                                <tr class="active">
+                                    <td align="center" colspan="2" style="color:green;align-content:center;font-weight:bolder;">**Loan Account Closed Successful**</td>
+                                </tr>
+                                <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                            }
+                            else if (!ViewBag.res)
+                            {
+                                <tr class="active">
+                                    <td align="center" colspan="2" style="color:red;align-content:center;font-weight:bolder;">!!!!Unsuccessful</td>
+                                </tr>
+                                <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:red;align-content:center;font-size:medium;font-weight:bolder;">@ViewBag.resmsg</td>
+                            </tr>
+                            <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                    }
+
+                    <tr class="active">
+                        <td colspan="2" align="center" style="color:cornflowerblue;font-size:medium;font-weight:bolder;align-content:center;">@ViewBag.Title</td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                        <th style="font-weight:bolder;color:darkred;font-weight:bolder">Saving-AccountID/CustomerID&nbsp;&nbsp;&nbsp;</th>
+                        <td><input type="text" required pattern="^(SB|MLA)\d{5}" title="should start with SB or LN followed by five digits" name="pId" /></td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                        <th style="font-weight:bolder;color:darkred;font-weight:bolder">Amount&nbsp;&nbsp;&nbsp;</th>
+                        <td><input type="number" required min="1" title="enter the integer amount to be paid for fore close" name="pAmount" /></td>
+                    </tr>
+                    <tr class="active"><td colspan="2">&nbsp;</td></tr>
+                    <tr class="active">
+                        <td colspan="2" align="center"><input type="submit" value="ForeClose" style="background-color:cornflowerblue" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    @*@Session["user"]*@
+    @if (IsPost)
+    {
+        <div><h3 style="color:red;">Invalid User</h3></div>
+    }
+    <div style="animation-delay:1s;margin-left:320px;margin-top:100px;background-color:cornflowerblue;height:250px;width:700px;border-radius:15px">
+        <form method="post">
+            <table border="0" align="center" style="margin-top:100px;margin-left:50px;align-content:center">
+                <tr>
+                    <td colspan="2"><h1>Login</h1></td>
+                </tr>
+                <tr>
+                    <td>Username</td>
+                    <td><input id="username" type="text" name="pUsrName" /></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input id="Password" type="password" name="pPwd" /></td>
+                </tr>
+                <tr>
+                    <td><input type="radio" value="customer" name="pType" />Customer</td>
+                    <td><input type="radio" value="staff" name="pType" checked/>Staff</td>
+                </tr>
+
+                @*<tr>
+                    <td></td>
+                    <td><input id="Checkbox1" type="checkbox" />remember me</td>
+                </tr>*@
+                <tr>
+                    <td colspan="2" align="center"><input id="Submit" type="submit" value="Login" /></td>
+                </tr>
+            </table>
+
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPhasisBank", "MPhasisBank\MPhasisBank.csproj", "{75D92917-C588-4A32-8952-6F02A22EB918}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALayer", "DALayer\DALayer.csproj", "{7315BE07-B2CF-4AB3-AA7E-DB2BE5E19278}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessEntities", "BusinessEntities\BusinessEntities.csproj", "{EB7766BD-0066-43C8-B9AD-DA1BDBC5B42B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{96592CCB-90F3-4D0B-820E-4743BFDE8B52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPhasisUnitTest", "MPhasisUnitTest\MPhasisUnitTest.csproj", "{46302BC3-719A-4687-8579-C60ABBA4DADF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPhasisBankUI", "MPhasisBankUI\MPhasisBankUI.csproj", "{FCFE91E7-0B9A-425E-8BC1-774C4F99F467}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular", "Angular\Angular.csproj", "{D707AA43-398E-47E9-9B09-058F5C5B3F8F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75D92917-C588-4A32-8952-6F02A22EB918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75D92917-C588-4A32-8952-6F02A22EB918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75D92917-C588-4A32-8952-6F02A22EB918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75D92917-C588-4A32-8952-6F02A22EB918}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7315BE07-B2CF-4AB3-AA7E-DB2BE5E19278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7315BE07-B2CF-4AB3-AA7E-DB2BE5E19278}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7315BE07-B2CF-4AB3-AA7E-DB2BE5E19278}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7315BE07-B2CF-4AB3-AA7E-DB2BE5E19278}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB7766BD-0066-43C8-B9AD-DA1BDBC5B42B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB7766BD-0066-43C8-B9AD-DA1BDBC5B42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB7766BD-0066-43C8-B9AD-DA1BDBC5B42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB7766BD-0066-43C8-B9AD-DA1BDBC5B42B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96592CCB-90F3-4D0B-820E-4743BFDE8B52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96592CCB-90F3-4D0B-820E-4743BFDE8B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96592CCB-90F3-4D0B-820E-4743BFDE8B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96592CCB-90F3-4D0B-820E-4743BFDE8B52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46302BC3-719A-4687-8579-C60ABBA4DADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46302BC3-719A-4687-8579-C60ABBA4DADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46302BC3-719A-4687-8579-C60ABBA4DADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46302BC3-719A-4687-8579-C60ABBA4DADF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCFE91E7-0B9A-425E-8BC1-774C4F99F467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCFE91E7-0B9A-425E-8BC1-774C4F99F467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCFE91E7-0B9A-425E-8BC1-774C4F99F467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCFE91E7-0B9A-425E-8BC1-774C4F99F467}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D707AA43-398E-47E9-9B09-058F5C5B3F8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D707AA43-398E-47E9-9B09-058F5C5B3F8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D707AA43-398E-47E9-9B09-058F5C5B3F8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D707AA43-398E-47E9-9B09-058F5C5B3F8F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DEB20F51-53B7-4755-9D75-5B2635A0C193}
+	EndGlobalSection
+EndGlobal

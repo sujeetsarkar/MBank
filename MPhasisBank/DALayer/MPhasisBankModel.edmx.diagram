@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3d13c93d2dfb4d2eb7e56a1473558b3d" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="MPhasisBankModel.AccountsEntity" Width="1.5" PointX="5.125" PointY="0.625" />
+        <EntityTypeShape EntityType="MPhasisBankModel.CustomerEntity" Width="1.5" PointX="0.5" PointY="2.875" />
+        <EntityTypeShape EntityType="MPhasisBankModel.DepartmentEntity" Width="1.5" PointX="0.5" PointY="0.875" />
+        <EntityTypeShape EntityType="MPhasisBankModel.EmployeeEntity" Width="1.5" PointX="2.75" PointY="0.5" />
+        <EntityTypeShape EntityType="MPhasisBankModel.LoanEntity" Width="1.5" PointX="8.75" PointY="0.5" />
+        <EntityTypeShape EntityType="MPhasisBankModel.LoanTransactionsEntity" Width="1.5" PointX="11" PointY="0.75" />
+        <EntityTypeShape EntityType="MPhasisBankModel.SavingsEntity" Width="1.5" PointX="7" PointY="0.625" />
+        <EntityTypeShape EntityType="MPhasisBankModel.SavingTransactionsEntity" Width="1.5" PointX="11" PointY="3.75" />
+        <AssociationConnector Association="MPhasisBankModel.fk_accid" />
+        <AssociationConnector Association="MPhasisBankModel.fk_custid" />
+        <AssociationConnector Association="MPhasisBankModel.fk_LnAccid" />
+        <AssociationConnector Association="MPhasisBankModel.fk_lntraccid" />
+        <AssociationConnector Association="MPhasisBankModel.fk_sbAccid" />
+        <AssociationConnector Association="MPhasisBankModel.fk_LnCustid" />
+        <AssociationConnector Association="MPhasisBankModel.fk_sbCustid" />
+        <AssociationConnector Association="MPhasisBankModel.fk_deptid" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

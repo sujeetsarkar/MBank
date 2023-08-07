@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "OpenLoanAccount";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+
+<html>
+<head>
+    <script src="~/jquery-3.3.1.min.js"></script>
+    <link href="~/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewBag.Title</title>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="row">
+            <form method="post">
+                <table class="tabbable" border="0" align="center" style="margin-top:20px">
+                    @if (IsPost)
+                    {
+                        if (ViewBag.Account != null)
+                        {
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:green;align-content:center;font-size:medium;font-weight:bolder;">Loan Account Opened Successfully</td>
+                            </tr>
+                            <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                        else
+                        {
+                            @*@ViewBag.resmsg*@
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:red;align-content:center;font-size:medium;font-weight:bolder;">@ViewBag.resmsg@*!!Internal Error*@</td>
+                            </tr>
+                            <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                    }
+                    <tr class="active">
+                        <td colspan="2" align="center" style="color:cornflowerblue;font-size:medium;font-weight:bolder;align-content:center;">@ViewBag.Title</td>
+                    </tr>
+                    <tr class="active"><td colspan="2">&nbsp;</td></tr>
+
+                    <tr class="active">
+                        <td style="color:darkred;font-weight:bolder">CustomerID/Savings AccountID&nbsp;&nbsp;&nbsp;</td>
+                        <td><input type="text" name="pId" required pattern="^(SB|MLA)\d{5}" title="can't include special character'" /></td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                        <td style="font-weight:bolder;color:darkred">Monthly Take Home</td>
+                        <td><input type="number" name="pMonthly" required min="0" title="must be greater than zero" /></td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                        <td style="font-weight:bolder;color:darkred;font-weight:bolder">Loan Amount</td>
+                        <td><input type="number" name="pReqsLoanAmount" min="0" required title="must be greater than zero" /></td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                        <td style="font-weight:bolder;color:darkred">pTenure(in months)&nbsp;&nbsp;&nbsp;</td>
+                        <td><input type="number" name="pTenure" min="0" required title="must be greater than zero" /></td>
+                    </tr>
+
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+
+                    <tr class="active">
+                        <td colspan="2" align="center"><input type="submit" style="background-color:cornflowerblue" value="Open Account" /></td>
+                    </tr>
+                </table>
+            </form>
+            <table class="tabbable" border="1" align="center" style="margin-top:20px">
+
+                @if (IsPost)
+                {
+                    if (ViewBag.Account != null)
+                    {
+                        //ViewBag.Account
+                        <tr class="active">
+                            <td align="center" colspan="2" style="color:green;align-content:center;font-size:medium;font-weight:bolder;">Customer Deatil</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">CustomerId</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Customer_ID</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">AccountId</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Account_ID</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">Account Type</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Account_Type</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">CustomerName</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Customer_Name</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">Principal Outstanding</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Balance</td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+
+</body>
+
+
+
+
+
+
+</html>

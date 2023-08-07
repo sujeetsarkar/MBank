@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "GetSavingsDetail";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+<html>
+<head>
+    <link href="~/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewBag.Title</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <form method="post">
+                <table class="tabbable" border="0" align="center" style="margin-top:50px">
+                    @if (IsPost)
+                    {
+                        if (ViewBag.res == null)
+                        {
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:red;align-content:center;font-size:medium;font-weight:bolder;">@ViewBag.resmsg</td>
+                            </tr>
+                            <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                    }
+
+                    <tr class="active">
+                        <td colspan="2" align="center" style="color:cornflowerblue;font-size:medium;font-weight:bolder;align-content:center;">@ViewBag.Title</td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    @if (Convert.ToInt32(Session["type"]) == 1)
+                    {
+                        <tr>
+                            <td><input type="text" name="pId" value="@Session["id"].ToString()" hidden /></td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black"> CustomerId&nbsp;&nbsp;&nbsp;</td>
+                            <td style="font-weight:bolder;color:darkred">@Session["id"]</td>
+                        </tr>
+
+                    }
+                    else
+                    {
+
+                        <tr class="active">
+                            <th style="font-weight:bolder;color:darkred;font-weight:bolder">AccountID/CustomerID&nbsp;&nbsp;&nbsp;</th>
+                            <td><input type="text" required pattern="^(SB|MLA)\d{5}" title="should start with SB or MLA followed by five digits" name="pId" /></td>
+                        </tr>
+                    }
+                    <tr class="active"><td colspan="2">&nbsp;</td></tr>
+                    <tr class="active">
+                        <td colspan="2" align="center"><input type="submit" value="Fetch Customer" style="background-color:cornflowerblue" /></td>
+                    </tr>
+                </table>
+            </form>
+            <table class="tabbable" border="1" align="center" style="margin-top:20px">
+
+                @if (IsPost)
+                {
+                    if (ViewBag.res != null)
+                    {
+                        <tr class="active">
+                            <td align="center" colspan="4" style="color:green;align-content:center;font-size:medium;font-weight:bolder;">Savings Account Deatil</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">CustomerId</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.res.Customer_ID</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">AccountId</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.res.Account_ID</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">Balance</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.res.Balance</td>
+                        </tr>
+                        @*<tr class="active">
+                                <td style="font-weight:bolder;color:black">Account Status</td>
+                                <td style="font-weight:bolder;color:darkred">@((ViewBag.res.Account_Status==1) ? "Active" : "Inactive")</td>
+                            </tr>*@
+                    }
+                }
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

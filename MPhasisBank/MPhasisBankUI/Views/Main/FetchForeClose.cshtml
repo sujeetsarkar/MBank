@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "FetchForeClose";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+
+
+<html>
+<head>
+    <link href="~/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewBag.Title</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <form method="post">
+                <table class="tabbable" border="0" align="center" style="margin-top:50px">
+                    @if (IsPost)
+                    {
+                        if (ViewBag.res != null)
+                        {
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:green;align-content:center;font-weight:bolder;">Amount to be paid for Foreclose<h4 style="color:blue">&#8377;@ViewBag.res</h4></td>
+                            </tr>
+                            <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                        else
+                        {
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:red;align-content:center;font-size:medium;font-weight:bolder;">@ViewBag.resmsg</td>
+                            </tr>
+                            <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                    }
+
+                    <tr class="active">
+                        <td colspan="2" align="center" style="color:cornflowerblue;font-size:medium;font-weight:bolder;align-content:center;">@ViewBag.Title</td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                        <th style="font-weight:bolder;color:darkred;font-weight:bolder">AccountID/CustomerID&nbsp;&nbsp;&nbsp;</th>
+                        <td><input type="text" required pattern="^(SB|LN|MLA)\d{5}" title="should start with SB or LN or MLA followed by five digits" name="pId" /></td>
+                    </tr>
+                    <tr class="active"><td colspan="2">&nbsp;</td></tr>
+                    <tr class="active">
+                        <td colspan="2" align="center"><input type="submit" value="Fetch" style="background-color:cornflowerblue" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

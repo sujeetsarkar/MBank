@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "PartPayment";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+<html>
+<head>
+    <link href="~/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/jquery-3.3.1.min.js"></script>
+    <title>ViewBag.Title</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <form method="post">
+                <table class="tabbable" border="0" align="center" style="margin-top:50px">
+                    @if (IsPost)
+                    {
+                        if (ViewBag.Account != null)
+                        {
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:green;align-content:center;font-weight:bolder;">***Successful***</td>
+                            </tr>
+                            <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                        else
+                        {
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:red;align-content:center;font-size:medium;font-weight:bolder;">@ViewBag.resmsg</td>
+                            </tr>
+                            <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                    }
+
+                    <tr class="active">
+                        <td colspan="2" align="center" style="color:cornflowerblue;font-size:medium;font-weight:bolder;align-content:center;">@ViewBag.Title</td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                        <th style="font-weight:bolder;color:darkred;font-weight:bolder">Saving-AccountID/CustomerID&nbsp;&nbsp;&nbsp;</th>
+                        <td><input type="text" required pattern="^(SB|MLA|LN)\d{5}" title="should start with SB, MLA or LN followed by five digits" name="pId" /></td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                        <th style="font-weight:bolder;color:darkred;font-weight:bolder">New Tenure&nbsp;&nbsp;&nbsp;</th>
+                        <td><input type="number" required min="1" title="enter the integer amount to be paid for fore close" name="pTenure" /></td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                        <th style="font-weight:bolder;color:darkred;font-weight:bolder">Part Payment Amount&nbsp;&nbsp;&nbsp;</th>
+                        <td><input type="number" required min="1" title="enter the integer amount to be paid for fore close" name="pAmount" /></td>
+                    </tr>
+                    <tr class="active"><td colspan="2">&nbsp;</td></tr>
+                    <tr class="active">
+                        <td colspan="2" align="center"><input type="submit" value="Pay" style="background-color:cornflowerblue" /></td>
+                    </tr>
+                </table>
+            </form>
+            <table class="tabbable" border="1" align="center" style="margin-top:20px">
+
+                @if (IsPost)
+                {
+                    if (ViewBag.Account != null)
+                    {
+                        <tr class="active">
+                            <td align="center" colspan="2" style="color:green;align-content:center;font-size:medium;font-weight:bolder;">Loan New Deatil</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">Loan AccountId</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Loan_Account_ID</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">CustomerId</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Customer_ID</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">Loan Amount</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Loan_Amount</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">Loan Start Date</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.Account.LStart_Date</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">New tenure</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Tenure</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">Rate Of Interest</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Loan_ROI</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">EMI</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.Account.EMI</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">Outstanding</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Outstanding</td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+</body>
+</html>

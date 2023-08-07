@@ -1,0 +1,51 @@
+﻿/*.table {
+    margin-top: 50px;
+    align-content:center;
+    border:0;
+}
+.SuccessMessage {
+    color: green;
+    align-content: center;
+    font-size: medium;
+    font-weight: bolder;
+}
+.ErrorMessage {
+    color: red;
+    align-content: center;
+    font-size: medium;
+    font-weight: bolder;
+}
+.TitleMessage {
+    color: cornflowerblue;
+    font-size: medium;
+    font-weight: bolder;
+    align-content: center;
+}
+.TableData {
+    font: bold;
+    color: darkred;
+}*/
+.mojFooter {
+    background-color: #f8f8f8;
+    color: #00a651;
+    padding-top: 0px;
+    border-top: 1px solid #e7e7e7;
+    margin-bottom: 0px;
+}
+
+.bottom-footer {
+    border-top: 1px solid #00a651;
+    margin-top: 0px;
+    padding-top: 7px;
+    color: #00a651;
+}
+
+.footer-nav li {
+    display: inline;
+    padding: 0px 40px;
+}
+
+.footer-nav a {
+    color: grey;
+    text-decoration: none;
+}

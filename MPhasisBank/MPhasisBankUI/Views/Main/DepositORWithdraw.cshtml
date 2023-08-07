@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewBag.Title = "DepositORWithdraw";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+<html>
+<head>
+    <link href="~/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/jquery-3.3.1.min.js"></script>
+    <title>ViewBag.Title</title>
+
+    <script>
+        $(document).ready(function () {
+            $("#deposit").hide();
+            $("#Radio1").click(function () {
+                $("#withdraw").show();
+                $("#deposit").hide();
+            });
+            $("#Radio2").click(function () {
+                $("#withdraw").hide();
+                $("#deposit").show();
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+
+            <table class="tabbable" border="0" align="center" style="margin-top:50px">
+                @if (IsPost)
+                {
+                    if (ViewBag.res != null)
+                    {
+                        if (ViewBag.res)
+                        {
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:green;align-content:center;font-weight:bolder;">*****Successful*****</td>
+                            </tr>
+                            <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                        else if (!ViewBag.res)
+                        {
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:red;align-content:center;font-weight:bolder;">!!!!Unsuccessful</td>
+                            </tr>
+                            <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr class="active">
+                            <td align="center" colspan="2" style="color:red;align-content:center;font-size:medium;font-weight:bolder;">@ViewBag.resmsg</td>
+                        </tr>
+                        <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    }
+                }
+                
+                <tr class="active">
+                    <td colspan="2" align="center" style="color:cornflowerblue;font-size:medium;font-weight:bolder;align-content:center;">@ViewBag.Title</td>
+                </tr>
+                <tr class="active"><td colspan="2">&nbsp;</td></tr>
+                <tr class="active">
+                    <th style="font-weight:bolder;color:darkred;font-weight:bolder"><input id="Radio1" type="radio" name="radio1" checked="checked" />Withdraw</th>
+                    <th style="font-weight:bolder;color:darkred;font-weight:bolder"><input id="Radio2" type="radio" name="radio1"/>Deposit</th>
+                </tr>
+                <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+
+            </table>
+            <div id="withdraw">
+                <form method="post" name="form1">
+                    @*<label id="label1" name="pType" value="withdraw"></label>*@
+
+                    <input type="text" hidden name="pType" value="withdraw" />
+                    <table class="tabbable" border="0" align="center">
+                        <tr class="active">
+                            <th style="font-weight:bolder;color:darkred;font-weight:bolder">Saving-AccountID/CustomerID&nbsp;&nbsp;&nbsp;</th>
+                            <td><input type="text" required pattern="^(SB|MLA)\d{5}" title="should start with SB or LN followed by five digits" name="pId" /></td>
+                        </tr>
+                        <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        <tr class="active">
+                            <th style="font-weight:bolder;color:darkred;font-weight:bolder">Withdraw Amount&nbsp;&nbsp;&nbsp;</th>
+                            <td><input type="number" required min="100" title="should start with SB or MLA followed by five digits" name="pAmount" /></td>
+                        </tr>
+                        <tr class="active"><td colspan="2">&nbsp;</td></tr>
+                        <tr class="active">
+                            <td colspan="2" align="center"><input type="submit" value="Withdraw" style="background-color:cornflowerblue" /></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div id="deposit" name="form2">
+                <form method="post">
+                    @*<label id="label1" name="pType" value="deposit"></label>*@
+                    <input type="text" hidden name="pType" value="deposit" />
+                    <table class="tabbable" border="0" align="center">
+
+                        <tr class="active">
+                            <th style="font-weight:bolder;color:darkred;font-weight:bolder">Saving-AccountID/CustomerID&nbsp;&nbsp;&nbsp;</th>
+                            <td><input type="text" required pattern="^(SB|MLA)\d{5}" title="should start with SB or LN followed by five digits" name="pId" /></td>
+                        </tr>
+                        <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        <tr class="active">
+                            <th style="font-weight:bolder;color:darkred;font-weight:bolder">Deposit Amount&nbsp;&nbsp;&nbsp;</th>
+                            <td><input type="number" required min="100" title="should start with SB or LN followed by five digits" name="pAmount" /></td>
+                        </tr>
+                        <tr class="active"><td colspan="2">&nbsp;</td></tr>
+                        <tr class="active">
+                            <td colspan="2" align="center"><input type="submit" value="Deposit" style="background-color:cornflowerblue" /></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+
+
+
+
+</html>

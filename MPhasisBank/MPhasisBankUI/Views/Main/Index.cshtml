@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content=  "width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @*@if(IsPost)   
+    {
+    <h1 style="align-content:center;color:red">!!!you have been successfully logged out!!!</h1>
+    }*@
+    @*@Session["user"]*@
+    
+        <div class="container">
+            <div class="row">
+
+                <div style="margin-top:250px;margin-left:400px;font:bold;">
+                    <form method="post">
+
+                        <input id="Button1" class="btn-danger" type="submit" formaction="/Main/Index" value="customer" name="submit" style="padding:50px;" />
+
+                        <input id="Button1" class="btn-danger" type="submit" formaction="/Main/Index" value="staff" name="submit" style="padding:50px" />
+
+                    </form>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

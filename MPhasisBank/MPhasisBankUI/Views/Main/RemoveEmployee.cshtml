@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "RemoveEmployee";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+
+<html>
+<head>
+    <link href="~/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewBag.Title</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <form method="post">
+                <table class="tabbable" border="0" align="center" style="margin-top:100px">
+                    @if (IsPost)
+                    {
+                        if (ViewBag.res)
+                        {
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:green;align-content:center;font-size:medium;font-weight:bolder;">Employee Removed Successfully</td>
+                            </tr>
+                            <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                        else
+                        {
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:red;align-content:center;font-size:medium;font-weight:bolder;">@ViewBag.resmsg</td>
+                            </tr>
+                            <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                    }
+                    <tr class="active">
+                        <td colspan="2" align="center" style="color:cornflowerblue;font-size:medium;font-weight:bolder;align-content:center;">@ViewBag.Title</td>
+                    </tr>
+                    <tr class="active"><td colspan="2">&nbsp;</td></tr>
+                    <tr class="active">
+                        <td style="font:bold;color:darkred">EmployeeID</td>
+                        <td><input type="text" name="pEmpId" required pattern="[0-9]{5}" title="should be minimum 5 digit number" /></td>
+                    </tr>
+                    <tr class="active"><td colspan="2">&nbsp;</td></tr>
+                    <tr class="active">
+                        <td colspan="2" align="center"><input type="submit" style="background-color:cornflowerblue" value="Remove Department" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

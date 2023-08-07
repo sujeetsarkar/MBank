@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "GetAccountsDetail";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+<html>
+<head>
+    <link href="~/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewBag.Title</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <form method="post">
+                <table class="tabbable" border="0" align="center" style="margin-top:50px">
+                    @if (IsPost)
+                    {
+                        if (ViewBag.res == null)
+                        {
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:red;align-content:center;font-size:medium;font-weight:bolder;">@ViewBag.resmsg</td>
+                            </tr>
+                            <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                    }
+
+                    <tr class="active">
+                        <td colspan="2" align="center" style="color:cornflowerblue;font-size:medium;font-weight:bolder;align-content:center;">@ViewBag.Title</td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                        <th style="font-weight:bolder;color:darkred;font-weight:bolder">CustomerID&nbsp;&nbsp;&nbsp;</th>
+                        <td><input type="text" required pattern="^(MLA)\d{5}" title="should start with MLA followed by five digits" name="pId" /></td>
+                    </tr>
+                    <tr class="active"><td colspan="2">&nbsp;</td></tr>
+                    <tr class="active">
+                        <td colspan="2" align="center"><input type="submit" value="Fetch Accounts" style="background-color:cornflowerblue" /></td>
+                    </tr>
+                </table>
+            </form>
+
+            @if (IsPost)
+            {
+                if (ViewBag.res != null)
+                {
+                    <table class="tabbable" border="1" align="center" style="margin-top:20px">
+                        <tr class="active">
+                            <td align="center" colspan="4" style="color:green;align-content:center;font-size:medium;font-weight:bolder;">Accounts Detail</td>
+                        </tr>
+                        <tr class="active">
+                            <th style="font-weight:bolder;color:black">Account ID</th>
+                            <th style="font-weight:bolder;color:black">Customer ID Date</th>
+                            <th style="font-weight:bolder;color:black">Account Type</th>
+                            <th style="font-weight:bolder;color:black">Account Status</th>
+                        </tr>
+                        @foreach (var item in ViewBag.res)
+                        {
+                            <tr>
+                                <td style="font-weight:bolder;color:darkred">@item.Account_ID</td>
+                                <td style="font-weight:bolder;color:darkred">@item.Customer_ID</td>
+                                <td style="font-weight:bolder;color:darkred">@item.Account_Type</td>
+                                <td style="font-weight:bolder;color:darkred">@((item.Account_Status==1) ? "Active" : "InActive")</td>
+                            </tr>
+                        }
+                    </table>
+                }
+            }
+
+
+        </div>
+    </div>
+
+</body>
+</html>

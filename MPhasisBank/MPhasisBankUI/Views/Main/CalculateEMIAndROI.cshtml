@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "CalculateEMIAndROI";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+<html>
+<head>
+    <script src="~/jquery-3.3.1.min.js"></script>
+    <link href="~/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewBag.Title</title>
+    <script type="text/javascript">
+        $(function () {
+            var dtToday = new Date();
+
+            var month = dtToday.getMonth() + 1;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+
+            if (month < 10)
+                month = '0' + month.toString();
+            if (day < 10)
+                day = '0' + day.toString();
+
+            var maxDate = year + '-' + month + '-' + day;
+            $('#caseDate').attr('max', maxDate);
+        });
+
+    </script>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="row">
+            <form method="post">
+                <table class="tabbable" border="0" align="center" style="margin-top:20px">
+                    @if (IsPost)
+                    {
+                        if (ViewBag.roi == null || ViewBag.emi == null)
+                        {
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:red;align-content:center;font-size:medium;font-weight:bolder;">@ViewBag.resmsg</td>
+                            </tr>
+                            <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                    }
+                    <tr class="active">
+                        <td colspan="2" align="center" style="color:cornflowerblue;font-size:medium;font-weight:bolder;align-content:center;">@ViewBag.Title</td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                        <td style="font-weight:bolder;color:darkred">Loan Amount</td>
+                        <td><input type="number" name="pAmount" min="10000" title="Minimum opening Amount Should be Atleast 10000" /></td>
+                    </tr>
+                    <tr class="active"><td colspan="2">&nbsp;</td></tr>
+                    <tr class="active">
+                        <td style="font-weight:bolder;color:darkred">DOB</td>
+                        <td><input type="date" name="pDOB" required id="caseDate" /></td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                        <td style="font-weight:bolder;color:darkred">Tenure</td>
+                        <td><input type="number" name="pTenure" min="3" title="Minimum should be 3" /></td>
+                    </tr>
+                    <tr class="active"><td colspan="2">&nbsp;</td></tr>
+                    <tr class="active">
+                        <td colspan="2" align="center"><input type="submit" style="background-color:cornflowerblue" value="Calculate" /></td>
+                    </tr>
+                </table>
+            </form>
+            <table class="tabbable" border="1" align="center" style="margin-top:20px">
+
+                @if (IsPost)
+                {
+                    if (ViewBag.roi != null || ViewBag.emi != null)
+                    {
+                        <tr class="active">
+                            <td align="center" colspan="2" style="color:green;align-content:center;font-size:medium;font-weight:bolder;">Expected Loan Detail</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">Loan Amount</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.amt</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">Tenure</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.ten</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">ROI</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.roi</td>
+                        </tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">EMI</td>
+                            <td style="font-weight:bolder;color:darkred">@ViewBag.emi</td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+
+</body>
+
+
+
+
+
+
+</html>

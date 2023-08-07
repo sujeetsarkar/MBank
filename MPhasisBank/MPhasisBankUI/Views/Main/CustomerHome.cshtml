@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "ManagerHome";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SuccessCust</title>
+</head>
+<body>
+    <div> 
+        <h3 style="text-align:center;color:blue;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Welcome to Mphasis Bank::@ViewBag.id.Customer_Name </h3>
+        @*<h1>Login successful as customer</h1>*@
+        <table border="1" style="border-color:brown;border-width:thick;align-content:center" align="center">
+            <tr>
+                <td class="col-sm-3" style="text-align:center">Customer Name</td>
+                <td class="col-sm-3" style="text-align:center">@ViewBag.id.Customer_Name</td>
+            </tr>
+            <tr>
+                <td class="col-sm-3" style="text-align:center">Customer ID</td>
+                <td class="col-sm-3" style="text-align:center">@ViewBag.id.Customer_ID</td>
+            </tr>
+            <tr>
+                <td class="col-sm-3" style="text-align:center">Savings A/C Number</td>
+                <td class="col-sm-3" style="text-align:center">@ViewBag.id.SB_Account_Number</td>
+            </tr>
+            <tr>
+                <td class="col-sm-3" style="text-align:center">Savings A/C Balance</td>
+                <td class="col-sm-3" style="text-align:center">@ViewBag.id.SB_Balance</td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>

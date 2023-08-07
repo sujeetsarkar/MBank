@@ -1,0 +1,159 @@
+﻿@Model
+@{
+    ViewBag.Title = "OpenSavingAccount";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+<html>
+<head>
+    <script src="~/jquery-3.3.1.min.js"></script>
+    <link href="~/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewBag.Title</title>
+    <script type="text/javascript">
+        $(function () {
+            var dtToday = new Date();
+
+            var month = dtToday.getMonth() + 1;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+
+            if (month < 10)
+                month = '0' + month.toString();
+            if (day < 10)
+                day = '0' + day.toString();
+
+            var maxDate = year + '-' + month + '-' + day;
+            $('#caseDate').attr('max', maxDate);
+        });
+
+    </script>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="row">
+            <form method="post">
+                <table class="tabbable" border="0" align="center" style="margin-top:20px">
+                    @if (IsPost)
+                    {
+                        if (ViewBag.Account != null)
+                        {
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:green;align-content:center;font-size:medium;font-weight:bolder;">Customer Added Successfully(Email Sent)</td>
+                            </tr>
+                            <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                        else
+                        {
+                            @*@ViewBag.resmsg*@
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:red;align-content:center;font-size:medium;font-weight:bolder;">@ViewBag.resmsg@*!!Internal Error*@</td>
+                            </tr>
+                            <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                    }
+                    <tr class="active">
+                        <td colspan="2" align="center" style="color:cornflowerblue;font-size:medium;font-weight:bolder;align-content:center;">@ViewBag.Title</td>
+                    </tr>
+                    <tr class="active"><td colspan="2">&nbsp;</td></tr>
+
+                    <tr class="active">
+                        <td style="color:darkred;font-weight:bolder">Customer Name</td>
+                        <td><input type="text" name="pCustName" required pattern="^[^-\s][a-zA-Z\s-]+$" title="can't include special character and max 20 and should not start with spaces" /></td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                        <td style="font-weight:bolder;color:darkred">DOB</td>
+                        <td><input type="date" name="pDOB" required id="caseDate" /></td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                        <td style="font-weight:bolder;color:darkred;font-weight:bolder">PAN</td>
+                        <td><input type="text" name="pPAN" required pattern="[A-Za-z]{4}[0-9]{4}" title="four letter followed by four number" /></td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                        <td style="font-weight:bolder;color:darkred">Email</td>
+                        <td><input type="email" name="pEmail" required /></td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                        <td style="font-weight:bolder;color:darkred">Mobile</td>
+                        <td><input type="text" name="pPhone" required pattern="[0-9]{10}" title="enter only 10 digit number" /></td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                        <td style="font-weight:bolder;color:darkred">Opeming Amount</td>
+                        <td><input type="number" name="pAmount" min="1000" title="Minimum opening Amount Should be Atleast 1000" /></td>
+                    </tr>
+                    <tr class="active"><td colspan="2">&nbsp;</td></tr>
+                    <tr class="active">
+                        <td colspan="2" align="center"><input type="submit" style="background-color:cornflowerblue" value="Submit" /></td>
+                    </tr>
+                </table>
+            </form>
+                    <table class="tabbable" border="1" align="center" style="margin-top:20px">
+            
+                    @if (IsPost)
+                        {
+                            if (ViewBag.Account != null)
+                            {
+                            //ViewBag.Account
+                            <tr class="active">
+                                <td align="center" colspan="2" style="color:green;align-content:center;font-size:medium;font-weight:bolder;">Customer Deatil</td>
+                            </tr>
+                            <tr class="active">
+                                <td style="font-weight:bolder;color:black">CustomerId</td>
+                                <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Customer_ID</td>
+                            </tr>
+                            <tr class="active">
+                                <td style="font-weight:bolder;color:black">AccountId</td>
+                                <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Account_ID</td>
+                            </tr>
+                            <tr class="active">
+                                <td style="font-weight:bolder;color:black">Account Type</td>
+                                <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Account_Type</td>
+                            </tr>
+                            <tr class="active">
+                                <td style="font-weight:bolder;color:black">CustomerName</td>
+                                <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Customer_Name</td>
+                            </tr>
+                            <tr class="active">
+                                <td style="font-weight:bolder;color:black">Balance</td>
+                                <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Balance</td>
+                            </tr>
+                            <tr class="active">
+                                <td style="font-weight:bolder;color:black">DOB</td>
+                                <td style="font-weight:bolder;color:darkred">@ViewBag.Account.DOB</td>
+                            </tr>
+                            <tr class="active">
+                                <td style="font-weight:bolder;color:black">Password</td>
+                                <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Password</td>
+                            </tr>
+                            <tr class="active">
+                                <td style="font-weight:bolder;color:black">PAN</td>
+                                <td style="font-weight:bolder;color:darkred">@ViewBag.Account.PAN</td>
+                            </tr>
+                            <tr class="active">
+                                <td style="font-weight:bolder;color:black">Email</td>
+                                <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Email</td>
+                            </tr>
+                            <tr class="active">
+                                <td style="font-weight:bolder;color:black">Mobile</td>
+                                <td style="font-weight:bolder;color:darkred">@ViewBag.Account.Phone</td>
+                            </tr>
+                        }
+                    }
+                    </table>
+        </div>
+    </div>
+
+</body>
+
+
+
+
+
+
+</html>

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/MyStyleSheet.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        @*<h1>Welcome Customer page......</h1>*@
+        @*<div class="container">
+            <div style="position:relative">
+                <div>
+                    <div><img src="~/header.jpg" style="height:150px;width:100%" /></div>
+                <div>   <img src="~/logo_1.jpg" style="position:absolute;height:150px;" />
+                </div>
+
+                </div>
+            </div>
+        </div>*@
+        <div class="container">
+            <div class="row">
+                <div style="position:relative;">
+
+                    <img src="~/header.jpg" class="col-sm-12" style="position:relative;top:0;height:150px;" />
+
+                    <img src="~/logo_1.jpg" class="col-sm-3" style="position:absolute;height:150px;top:0;left:0;" />
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <nav>
+                <div class="col-sm-2"><a href="~/Main/CustomerHome">Home</a></div>
+                <div class="col-sm-2"><a href="~/Main/SavingServices">Savings Services</a></div>
+                <div class="col-sm-2"><a href="#test">Loan Services</a></div>
+                <div class="col-sm-2"><a href="#test">Profile</a></div>
+                <div class="col-sm-2"><a href="#test">ContactUs</a></div>
+                <div class="col-sm-2"><a href="#test">About</a></div>
+            </nav>
+        </div>
+        <div>&nbsp;</div>
+        <div align="right"><a href="~/Main/LogOut" class="btn btn-danger"><span class="glyphicon glyphicon-log-out"></span>Log out</a></div>
+        @*<div align="right">@Html.ActionLink("Logout", "LogOut")</div>*@
+    </div>
+    <section>
+        <article>
+        </article>
+    </section>
+    <aside></aside>
+    <footer></footer>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
+

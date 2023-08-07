@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <link href="~/general.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header>
+        <div style="position:relative;">
+
+            <img src="~/header.jpg" style="position:relative;top:0;height:150px;width:100%" />
+
+            <img src="~/logo_1.jpg" style="position:absolute;height:150px;top:0;left:0;" />
+
+        </div>
+    </header>
+
+    @if (Convert.ToInt32(Session["type"]) == 4)
+    {
+        //Manager
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" style="background-color:cornflowerblue;color:white;" href="#">Mphasis Bank</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="~/Main/ManagerHome">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">General Services<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="~/Main/GetCustomerDetail">Customer Detail</a></li>
+                            <li><a href="~/Main/GetAccountsDetail">Accounts Detail</a></li>
+                            <li><a href="~/Main/CheckCustomerExistance">Check Existing Customer</a></li>
+                            <li><a href="~/Main/GetEMI">Fetch EMI</a></li>
+                            <li><a href="~/Main/CalculateEMIAndROI">Calculate EMI/ROI</a></li>
+                            @*<li><a href="#">Customer Report</a></li>*@
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Savings Services<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="~/Main/OpenSavingAccount">Open Savings Account</a></li>
+                            <li><a href="~/Main/CloseSavingAccount">Close Savings Account</a></li>
+                            <li><a href="~/Main/DepositORWithdraw">Deposit/Withdraw</a></li>
+                            <li><a href="~/Main/GetSavingsDetail">Savings Detail</a></li>
+                            <li><a href="~/Main/SavingStatement">Mini Statement</a></li>
+                            <li><a href="~/Main/SBTransaction">Savings Report</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Loan Services<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="~/Main/OpenLoanAccount">Open Loan Account</a></li>
+                            <li><a href="~/Main/ForeClose">Fore Close Loan Account</a></li>
+                            <li><a href="~/Main/FetchForeClose">Fetch ForeClose Amount</a></li>
+                            <li><a href="~/Main/PartPayment">Part Payment</a></li>
+                            <li><a href="~/Main/GetEMI">Fetch EMI</a></li>
+                            <li><a href="~/Main/CalculateEMIAndROI">Calculate EMI and ROI</a></li>
+                            <li><a href="~/Main/GetAccountLoanDetail">Loan Detail</a></li>
+                            <li><a href="~/Main/PayEMI">Pay EMI</a></li>
+                            <li><a href="~/Main/LoanStatement">View Statement</a></li>
+                            <li><a href="~/Main/LNTransaction">Loan Report</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Staff Management<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+
+                            <li><a href="~/Main/AddDepartment">Add Department</a></li>
+                            <li><a href="~/Main/RemoveDepartment">Remove Department</a></li>
+
+                            <li><a href="~/Main/AddEmployee">Add Employee</a></li>
+                            <li><a href="~/Main/RemoveEmployee">Remove Employee</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="btn-danger" style="color:white;" href="~/Main/LogOut"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
+
+            </div>
+        </nav>
+    }
+    else if (Convert.ToInt32(Session["type"]) == 1)
+    {
+        //customer
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" style="background-color:cornflowerblue;color:white;" href="#">Mphasis Bank</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="~/Main/CustomerHome">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Savings Services<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="~/Main/AccountBalance">View Account Balance</a></li>
+                            <li><a href="~/Main/SBTransaction">Savings Report</a></li>
+                            <li><a href="~/Main/GetSavingsDetail">Savings Account Detail</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Loan Services<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="~/Main/GetAccountLoanDetail">Loan Account Detail</a></li>
+                            <li><a href="~/Main/GetEMI">Fetch EMI</a></li>
+                            <li><a href="~/Main/LNTransaction">Loan Report</a></li>
+                            <li><a href="~/Main/PayEMI">Pay EMI</a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="#">ContactUs</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="btn-danger" style="color:white;" href="~/Main/LogOut"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
+
+            </div>
+        </nav>
+    }
+    else if (Convert.ToInt32(Session["type"]) == 2)
+    {
+        //Employee Savings
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" style="background-color:cornflowerblue;color:white;" href="#">Mphasis Bank</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="~/Main/ManagerHome">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">General Services<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="~/Main/GetCustomerDetail">Customer Detail</a></li>
+                            <li><a href="~/Main/CheckCustomerExistance">Check Existing Customer</a></li>
+                            @*<li><a href="#">Customer Report</a></li>*@
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Savings Services<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="~/Main/OpenSavingAccount">Open Savings Account</a></li>
+                            <li><a href="~/Main/CloseSavingAccount">Close Savings Account</a></li>
+                            <li><a href="~/Main/DepositORWithdraw">Deposit/Withdraw</a></li>
+                            <li><a href="~/Main/GetSavingsDetail">Savings Detail</a></li>
+                            <li><a href="~/Main/SavingStatement">Mini Statement</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="btn-danger" style="color:white;" href="~/Main/LogOut"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
+
+            </div>
+        </nav>
+    }
+    else if (Convert.ToInt32(Session["type"]) == 3)
+    {
+        //Loan Employee
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" style="background-color:cornflowerblue;color:white;" href="#">Mphasis Bank</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="~/Main/ManagerHome">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">General Services<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="~/Main/GetCustomerDetail">Customer Detail</a></li>
+                            <li><a href="~/Main/CheckCustomerExistance">Check Existing Customer</a></li>
+                            <li><a href="~/Main/GetEMI">Fetch EMI</a></li>
+                            <li><a href="~/Main/CalculateEMIAndROI">Calculate EMI/ROI</a></li>
+                            @*<li><a href="#">Customer Report</a></li>*@
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Loan Services<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="~/Main/OpenLoanAccount">Open Loan Account</a></li>
+                            <li><a href="~/Main/ForeClose">Fore Close Loan Account</a></li>
+                            <li><a href="~/Main/FetchForeClose">Fetch ForeClose Amount</a></li>
+                            <li><a href="~/Main/PartPayment">Part Payment</a></li>
+                            <li><a href="~/Main/GetEMI">Fetch EMI</a></li>
+                            <li><a href="~/Main/CalculateEMIAndROI">Calculate EMI and ROI</a></li>
+                            <li><a href="~/Main/GetAccountLoanDetail">Loan Detail</a></li>
+                            <li><a href="~/Main/PayEMI">Pay EMI</a></li>
+                            <li><a href="~/Main/LoanStatement">View Statement</a></li>
+                            <li><a href="~/Main/LNTransaction">Loan Report</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="btn-danger" style="color:white;" href="~/Main/LogOut"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
+
+            </div>
+        </nav>
+    }
+    <div>
+        @RenderBody()
+    </div>
+    <footer></footer>
+</body>
+</html>

@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Mini Statement";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>SavingTransaction</title>
+</head>
+<body>
+    <table border="1" class="tabbable" style="border-color:brown;border-width:thick;align-content:center" align="center">
+
+        @if (IsPost)
+        {
+            if (ViewData["msg"] == null)
+            {
+                <tr class="active">
+                    <th style="font-weight:bolder;color:black">TransID</th>
+                    <th style="font-weight:bolder;color:black">TransDate</th>
+                    <th style="font-weight:bolder;color:black">TransType</th>
+                    <th style="font-weight:bolder;color:black">Amount</th>
+                </tr>
+                foreach (var item in ViewBag.Trans)
+                {
+                    <tr>
+                        <td style="font-weight:bolder;color:darkred">@item.Savings_Trans_ID</td>
+                        <td style="font-weight:bolder;color:darkred">@item.Transaction_Date</td>
+                        <td style="font-weight:bolder;color:darkred">@item.Transaction_Type</td>
+                        <td style="font-weight:bolder;color:darkred">@item.Amount</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr><td colspan="2" align="center" style="align-content:center;color:red;">@Convert.ToString(ViewData["msg"])</td></tr>
+            }
+        }
+
+    </table>
+    <div>
+        <div class="container">
+            <div class="row">
+                <form method="post">
+                    <table class="tabbable" border="0" align="center" style="margin-top:100px">
+                        @*<tr class="active">
+                                <td align="center" style="font:bold;color:darkred;font-weight:bolder;"><input type="radio" name="AccountType" value="SB" checked="checked" />Savings Account</td>
+                                <td align="center" style="font:bold;color:darkred;font-weight:bolder;"><input type="radio" name="AccountType" value="LN" />Loan Account</td>
+                            </tr>*@
+                        @if (Convert.ToInt32(Session["type"]) == 1)
+                        {
+                        <tr>
+                            <td><input type="text" name="pId" value="@Session["id"].ToString()" hidden /></td>
+                        </tr>
+                        <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black"> CustomerId&nbsp;&nbsp;&nbsp;</td>
+                            <td style="font-weight:bolder;color:darkred">@Session["id"]</td>
+                        </tr>
+                        <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                        else
+                        {
+                        <tr>
+                            <td style="font-weight:bolder;color:black"> Account-ID/Customer Id &nbsp;&nbsp;&nbsp;</td>
+                            <td><input type="text" name="pId" required pattern="^(SB|LN|MLA)\d{5}" title="should start with SB or LN or MLA followed by five digits" /></td>
+                        </tr>
+                        <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">From Date</td>
+                            <td><input type="date" name="FromDate" /></td>
+                        </tr>
+                        <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        <tr class="active">
+                            <td style="font-weight:bolder;color:black">To Date</td>
+                            <td><input type="date" name="ToDate" /></td>
+                        </tr>
+                        <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        <tr class="active">
+                            <td colspan="2" align="center"><input type="submit" value="Get Report" style="background-color:cornflowerblue"/></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+

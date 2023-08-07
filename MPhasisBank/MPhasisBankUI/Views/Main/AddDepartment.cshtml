@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "AddDepartment";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+<html>
+<head>
+    <link href="~/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewBag.Title</title>
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <form method="post">
+                <table class="tabbable" border="0" align="center" style="margin-top:100px">
+                    @if (IsPost)
+                     {
+                        if (ViewBag.res)
+                        {
+                        <tr class="active">
+                        <td colspan="2" align="center" style="color:green;align-content:center;font-size:medium;font-weight:bolder;">Department Added Successfully</td>
+                        </tr>
+                        <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                        else
+                        {
+                            @*@ViewBag.resmsg*@
+                        <tr>
+                            <td colspan="2" align="center" style="color:red;align-content:center;font-size:medium;font-weight:bolder;">@ViewBag.resmsg@*!!Internal Error*@</td>
+                        </tr>
+                        <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        }
+                     }
+                    <tr class="active">
+                        <td colspan="2" align="center" style="color:cornflowerblue;font-size:medium;font-weight:bolder;align-content:center;">@ViewBag.Title</td>
+                    </tr>
+                    <tr class="active"><td colspan="2">&nbsp;</td></tr>
+                    <tr class="active">
+                        <th style="font:bold;color:darkred">Department-ID</th>
+                        <td><input type="text" name="pDeptId" required pattern="^(DEPT)\d+$" title="should start with DEPT followed by digits" /></td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                        <th style="font:bold;color:darkred">Department Name</th>
+                        <td><input type="text" name="pDeptName" required pattern="[A-Za-z]+[-][A-Za-z]+" title="should be name followed by - and name"/></td>
+                    </tr>
+                    <tr class="active"><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr class="active">
+                    <td colspan="2" align="center"><input type="submit" style="background-color:cornflowerblue" value="Add Department" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    
+</body>
+</html>

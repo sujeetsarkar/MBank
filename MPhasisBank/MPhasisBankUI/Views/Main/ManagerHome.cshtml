@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "ManagerHome";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <h2 style=" background-color:blue;text-align:center;color:white;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Welcome to Mphasis Bank::@ViewBag.id.Emp_Name </h2>
+        <table border="1" style="border-color:brown;border-width:thick;align-content:center" align="center">
+            <tr>
+                <td class="col-sm-3" style="text-align:center">Employee Name</td>
+                <td class="col-sm-3" style="text-align:center">@ViewBag.id.Emp_Name</td>
+            </tr>
+            <tr>
+                <td class="col-sm-3" style="text-align:center">Employee ID</td>
+                <td class="col-sm-3" style="text-align:center">@ViewBag.id.Employee_ID</td>
+            </tr>
+            <tr>
+                <td class="col-sm-3" style="text-align:center">Employee Type</td>
+                <td class="col-sm-3" style="text-align:center">@ViewBag.id.Emp_Type</td>
+            </tr>
+            <tr>
+                <td class="col-sm-3" style="text-align:center">Department ID</td>
+                <td class="col-sm-3" style="text-align:center">@ViewBag.id.Dept_ID</td>
+            </tr>
+            <tr>
+                <td class="col-sm-3" style="text-align:center">Department Name</td>
+                <td class="col-sm-3" style="text-align:center">@ViewBag.id.Dept_Name</td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>
+
